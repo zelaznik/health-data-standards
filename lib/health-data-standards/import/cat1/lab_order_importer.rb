@@ -4,7 +4,7 @@ module HealthDataStandards
       class LabOrderImporter < CDA::SectionImporter
         def initialize(entry_finder=CDA::EntryFinder.new("./cda:entry/cda:observation[cda:templateId/@root = '2.16.840.1.113883.10.20.24.3.37']"))
           super(entry_finder)
-          @entry_class = LabResult
+          @entry_class = HealthDataStandards::Models::LabResult
         end
         
         private
