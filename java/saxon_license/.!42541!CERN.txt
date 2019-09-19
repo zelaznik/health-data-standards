@@ -1,0 +1,6 @@
+
+(This notice is included in the Saxon distribution because Saxon includes a QuickSort
+module that was originally developed by Wolfgang Hoschek at CERN, and which was licensed
+for use under the conditions specified here.)
+
+
