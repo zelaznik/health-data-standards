@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gemspec :development_group => :test
+gem 'activemodel', '~> 5'
 
 group :development do
   gem 'rake'

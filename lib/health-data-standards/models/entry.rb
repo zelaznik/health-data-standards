@@ -25,12 +25,18 @@ class Entry
   field :oid, type: String
   field :reason, type: Hash
   field :health_record_field, type: Hash
-  
-  attr_protected :version
-  attr_protected :_id
-  attr_protected :created_at
-  attr_protected :updated_at
-  
+
+  PROTECTED_ATTRS = [:version, :_id, :created_at, :updated_at]
+
+  def assign_attributes(data={}, *args, &block)
+    forbiden_attrs = data.keys.map(&:to_sym) & PROTECTED_ATTRS
+    unless forbiden_attrs.empty?
+      raise "Cannot mass assign attributes: #{forbiden_attrs}"
+    end
+
+    super(data, *args, &block)
+  end
+
   def add_reference(entry, type)
     references.build(type: type, referenced_type: entry.class, referenced_id: entry.id)
   end
